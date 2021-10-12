@@ -1,10 +1,11 @@
 @extends('layouts.layout')
 
-@section('title', 'Curso'. $curso->name)
+@section('title', 'Asistencia'. $asistencia->name)
 
 @section('content')
 
-<h1>Bienvenido este es el usuario {{$curso->name}} </h1>
-<a href="{{route('curso.index')}}">volver al curso</a>
-<p><strong>grado</strong>{{$curso->grado}}</p>
+<h1>Bienvenido este es la asistencia {{$asistencia->id}} {{$asistencia->estado}} {{$asistencia->user_id}} </h1>
+<a href="{{route('asistencia.edit', $asistencia)}}">editar asistencia</a>
+<br>
+<a href="{{route('asistencia.index')}}">volver a las asistencia</a>
 @endsection

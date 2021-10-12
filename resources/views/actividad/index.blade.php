@@ -1,17 +1,18 @@
 @extends('layouts.layout')
 
-@section('title', 'Usuarios')
+@section('title', 'Actividad')
 
 @section('content')
-<h1>Bienvenido a la seccion de los usuarios </h1>
-<a href="{{route('user.create')}}">crear usuario</a>
+<h1>Bienvenido a la seccion de Actividades </h1>
+<a href="{{route('actividad.create')}}">Crear Actividad</a>
 <ul>
-    @foreach ($user as $users)
+    @foreach ($actividad as $actividades)
     <li>
-        <a href="{{route('user.show', $users->id)}}">{{$users->id}} {{$users->name}}</a>
+        <a href="{{route('actividad.show', $actividades->id)}}">{{$actividades->id}} {{$actividades->name}}</a>
     </li>
     @endforeach
 </ul>
-{{ $user->links() }}
-
+<div>
+{{ $actividad->links() }}
+</div>
 @endsection

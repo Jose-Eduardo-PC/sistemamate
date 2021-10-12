@@ -37,7 +37,13 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = new user();
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->save();
+        return redirect()->route('user.show',$user);
     }
 
     /**
@@ -49,7 +55,6 @@ class UserController extends Controller
     public function show($id)
     {
         $user = user::find($id);
-        return $user;
         return view('user.show', compact('user'));;
     }
 
@@ -59,9 +64,11 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(user $user)
     {
-        //
+        
+        return view('user.edit', compact('user'));
+        
     }
 
     /**
@@ -71,9 +78,13 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(request $request,user $user)
     {
-        //
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->save();
+        return redirect()->route('user.show',$user);
     }
 
     /**

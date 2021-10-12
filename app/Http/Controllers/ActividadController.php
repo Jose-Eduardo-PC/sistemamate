@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\actividad;
 use Illuminate\Http\Request;
 
 class ActividadController extends Controller
@@ -13,7 +14,8 @@ class ActividadController extends Controller
      */
     public function index()
     {
-        //
+        $actividad = actividad::orderBy('id','asc')->paginate();
+        return view('actividad.index', compact('actividad'));
     }
 
     /**
@@ -23,7 +25,7 @@ class ActividadController extends Controller
      */
     public function create()
     {
-        //
+        return view('actividad.create');
     }
 
     /**
@@ -32,9 +34,14 @@ class ActividadController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,actividad $actividad)
     {
-        //
+        
+        $actividad->name = $request->name;
+        $actividad->descripcion= $request->descripcion;
+        $actividad->tema_id = $request->tema_id;
+        $actividad->save();
+        return redirect()->route('actividad.show',$actividad);
     }
 
     /**
@@ -45,7 +52,8 @@ class ActividadController extends Controller
      */
     public function show($id)
     {
-        //
+        $actividad = actividad::find($id);
+        return view('actividad.show', compact('actividad'));
     }
 
     /**
@@ -56,7 +64,8 @@ class ActividadController extends Controller
      */
     public function edit($id)
     {
-        //
+        $actividad = actividad::find($id);
+        return view('actividad.edit', compact('actividad'));
     }
 
     /**
@@ -66,9 +75,14 @@ class ActividadController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,actividad $actividad)
     {
-        //
+        
+        $actividad->name = $request->name;
+        $actividad->descripcion= $request->descripcion;
+        $actividad->tema_id = $request->tema_id;
+        $actividad->save();
+        return redirect()->route('actividad.show',$actividad);
     }
 
     /**

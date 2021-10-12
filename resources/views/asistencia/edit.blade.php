@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 
-@section('title', 'Asistencia')
+@section('title', 'Asistencia Edit')
 
 @section('content')
 
@@ -14,9 +14,11 @@
 				<x-jet-authentication-card-logo />
 			</x-slot>
 	
-			<form action="{{ route('asistencia.store',) }}" method="POST">
+			<form action="{{ route('asistencia.update',$asistencia) }}" method="POST">
 				@csrf
-				<x-jet-label  value="{{ __('User_id') }}" />
+				@method('put')
+
+				<x-jet-label  value="{{ __('user_id') }}" />
 				<select name="user_id" >
 					<option value="1"> 1 </option>
 					<option value="2"> 2  </option>
@@ -30,16 +32,16 @@
 				</select>
 				<div>
 					<x-jet-label value="{{ __('Estado') }}" />
-					<x-jet-input class="block mt-1 w-full" type="text" name="estado"  />
+					<x-jet-input class="block mt-1 w-full" type="text" name="estado"  value="{{$asistencia->estado}}"/>
 				</div>
 				<div>
 					<x-jet-label value="{{ __('Fecha') }}" />
-					<x-jet-input class="block mt-1 w-full" type="date" name="fecha"  />
+					<x-jet-input class="block mt-1 w-full" type="date" name="fecha"  value="{{$asistencia->fecha}}"/>
 				</div>
 	
 	
 					<x-jet-button class="ml-4">
-						{{ __('Registro') }}
+						{{ __('Actualizar Registro') }}
 					</x-jet-button>
 				</div>
 			</form>

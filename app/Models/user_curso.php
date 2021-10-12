@@ -8,10 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class user_curso extends Model
 {
     use HasFactory;
-    public function usuario() {
-        return $this->belongsTo('App/Models/Usuario');
+    public function user() {
+        return $this->belongsTo('App/Models/User');
     }
     public function curso() {
-        return $this->belongsTo('App/Models/Curso');
+        return $this->belongsTo('App/Models/curso');
     }
 }

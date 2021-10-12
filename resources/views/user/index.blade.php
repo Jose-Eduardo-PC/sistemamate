@@ -4,6 +4,8 @@
 
 @section('content')
 <h1>Bienvenido a la seccion de los usuarios </h1>
+<style>
+</style>
 <a href="{{route('user.create')}}">crear usuario</a>
 <ul>
     @foreach ($user as $users)

@@ -15,7 +15,7 @@ class CursosController extends Controller
     public function index()
     {
         $curso = curso::orderBy('id','desc')->paginate();
-        return view('asistencia.index', compact('asistencia'));
+        return view('curso.index', compact('curso'));
     }
 
     /**
@@ -25,7 +25,8 @@ class CursosController extends Controller
      */
     public function create()
     {
-        return view('curso.create');
+        $curso = curso::all();
+        return view('curso.create', compact('curso'));
     }
 
     /**
@@ -50,10 +51,8 @@ class CursosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(curso $curso)
     {
-        $curso = curso::find($id);
-        return $curso;
         return view('curso.show', compact('curso'));
     }
 
@@ -63,9 +62,9 @@ class CursosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(curso $curso)
     {
-        //
+        return view('curso.edit', compact('curso'));
     }
 
     /**
@@ -75,9 +74,12 @@ class CursosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, curso $curso)
     {
-        //
+        $curso->name = $request->name;
+        $curso->grado = $request->grado;
+        $curso->save();
+        return redirect()->route('curso.show',$curso);
     }
 
     /**

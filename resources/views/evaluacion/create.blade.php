@@ -1,10 +1,10 @@
 @extends('layouts.layout')
 
-@section('title', 'Actividad')
+@section('title', 'Materia')
 
 @section('content')
 
-<h1><a class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">Bienvenido a crear Actividades</a></h1>
+<h1><a class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">Bienvenido a crear cursos</a></h1>
 <br>
 
 	</div>
@@ -14,7 +14,7 @@
 				<x-jet-authentication-card-logo />
 			</x-slot>
 	
-			<form action="{{ route('actividad.store') }}" method="POST">
+			<form action="{{ route('evaluacion.store') }}" method="POST">
 				@csrf
 	
 				<div>

@@ -1,10 +1,10 @@
 @extends('layouts.layout')
 
-@section('title', 'Actividad')
+@section('title', 'Materia')
 
 @section('content')
 
-<h1><a class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">Bienvenido a crear Actividades</a></h1>
+<h1><a class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">Bienvenido a crear cursos</a></h1>
 <br>
 
 	</div>
@@ -14,12 +14,17 @@
 				<x-jet-authentication-card-logo />
 			</x-slot>
 	
-			<form action="{{ route('actividad.store') }}" method="POST">
+			<form action="{{ route('materia.store') }}" method="POST">
 				@csrf
 	
 				<div>
 					<x-jet-label  value="{{ __('Name') }}" />
 					<x-jet-input class="block mt-1 w-full" type="text" name="name"  />
+				</div>
+				
+				<div>
+					<x-jet-label  value="{{ __('Contenido') }}" />
+					<x-jet-input class="block mt-1 w-full" type="text" name="contenido"  />
 				</div>
 				<div>
 					<x-jet-label  value="{{ __('Descripcion') }}" />
@@ -27,7 +32,7 @@
 				</div>
 				<div>
 					<br>
-				<select name="tema_id" >
+				<select name="curso_id" >
 					<option value="1"> 1 </option>
 					<option value="2"> 2  </option>
 					<option value="3"> 3  </option>

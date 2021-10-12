@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-
-use App\Models\materia;
+use App\Models\tema;
 use Illuminate\Http\Request;
 
-class MateriaController extends Controller
+class TemaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,8 @@ class MateriaController extends Controller
      */
     public function index()
     {
-        $materia = materia::orderBy('id','asc')->paginate();
-        return view('materia.index', compact('materia'));
+        $tema = tema::orderBy('id','asc')->paginate();
+        return view('tema.index', compact('tema'));
     }
 
     /**
@@ -26,9 +25,7 @@ class MateriaController extends Controller
      */
     public function create()
     {
-        $materia = materia::all();
-        return view('materia.create', compact('materia'));
-
+        return view('tema.create');
     }
 
     /**
@@ -37,16 +34,13 @@ class MateriaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,tema $tema)
     {
-        $materia = new materia();
-
-        $materia->name = $request->name;
-        $materia->contenido = $request->contenido;
-        $materia->descripcion = $request->descripcion;
-        $materia->curso_id = $request->curso_id;
-        $materia->save();
-        return redirect()->route('materia.show',$materia);
+        $tema->name = $request->name;
+        $tema->descripcion = $request->descripcion;
+        $tema->materia_id = $request-> materia_id;
+        $tema->save();
+        return redirect()->route('tema.show',$tema);
     }
 
     /**
@@ -57,8 +51,8 @@ class MateriaController extends Controller
      */
     public function show($id)
     {
-        $materia = materia::find($id);
-        return view('materia.show', compact('materia'));
+        $tema = tema::find($id);
+        return view('tema.show', compact('tema'));
     }
 
     /**
@@ -69,8 +63,8 @@ class MateriaController extends Controller
      */
     public function edit($id)
     {
-        $materia = materia::find($id);
-        return view('materia.edit', compact('materia'));
+        $tema = tema::find($id);
+        return view('tema.edit', compact('tema'));
     }
 
     /**
@@ -80,14 +74,13 @@ class MateriaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, materia $materia)
+    public function update(Request $request, tema $tema)
     {
-        $materia->name = $request->name;
-        $materia->contenido = $request->contenido;
-        $materia->descripcion = $request->descripcion;
-        $materia->curso_id = $request->curso_id;
-        $materia->save();
-        return redirect()->route('materia.show', $materia);
+        $tema->name = $request->name;
+        $tema->descripcion = $request->descripcion;
+        $tema->materia_id = $request->materia_id;
+        $tema->save();
+        return redirect()->route('tema.show',$tema);
     }
 
     /**

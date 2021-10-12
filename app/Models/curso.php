@@ -8,10 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class curso extends Model
 {
     use HasFactory;
-    public function Materia() {
-        return $this->HasMany('App/Models/Materia');
+    public function materia() {
+        return $this->HasMany('App/Models/materia');
     }
     public function usuario_curso() {
-        return $this->hasMany('App/Models/User_Curso');
+        return $this->hasMany('App/Models/user_curso');
     }
 }

@@ -9,12 +9,12 @@ class tema extends Model
 {
     use HasFactory;
     public function actividades() {
-        return $this->hasMany('App/Models/Actividades');   
+        return $this->hasMany('App/Models/actividades');   
     }
     public function materia() {
-        return $this->belongsTo('App/Models/Materia');   
+        return $this->belongsTo('App/Models/materia');   
     }
     public function evaluacion() {
-        return $this->hasOne('App/Models/Evaluacion');
+        return $this->hasOne('App/Models/evaluacion');
 }
 }

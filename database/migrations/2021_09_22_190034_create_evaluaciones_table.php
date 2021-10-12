@@ -13,7 +13,7 @@ class CreateEvaluacionesTable extends Migration
      */
     public function up()
     {
-        Schema::create('evaluaciones', function (Blueprint $table) {
+        Schema::create('evaluacions', function (Blueprint $table) {
             $table->increments('id')->unsigned();
             $table->string('name');
             $table->text('descripcion');

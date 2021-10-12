@@ -9,6 +9,6 @@ class evaluacion extends Model
 {
     use HasFactory;
     public function materia() {
-        return $this->hasOne('App/Models/Materia');
+        return $this->hasOne('App/Models/materia');
     }
 }

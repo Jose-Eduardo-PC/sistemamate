@@ -9,10 +9,10 @@ class materia extends Model
 {
     use HasFactory;
     public function tema() {
-        return $this->HasMany('App/Models/Tema');
+        return $this->HasMany('App/Models/tema');
     }
 
     public function curso() {
-        return $this->belongsTo('App/Models/Curso');
+        return $this->belongsTo('App/Models/curso');
     }
 }

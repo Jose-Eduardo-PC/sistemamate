@@ -9,7 +9,7 @@ class actividad extends Model
 {
     use HasFactory;
     public function tema() {
-        return $this->belongsTo('App/Models/Tema');
+        return $this->belongsTo('App/Models/tema');
 
         }
 }

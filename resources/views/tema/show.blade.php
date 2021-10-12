@@ -1,11 +1,11 @@
 @extends('layouts.layout')
 
-@section('title', 'Usuarios')
+@section('title', 'Tema '. $tema->name)
 
 @section('content')
 
-
-<h1>Bienvenido este es el usuario {{$user}} </h1>
+<h1>Bienvenido a la {{$tema->name}} </h1>
+<a href="{{route('tema.edit', $tema)}}">editar tema</a>
 <br>
-<a href="/user" class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">Volver a usuarios...</a>
+<a href="{{route('tema.index')}}">volver a los temas</a>
 @endsection
