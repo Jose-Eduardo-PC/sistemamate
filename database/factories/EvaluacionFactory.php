@@ -22,9 +22,12 @@ class EvaluacionFactory extends Factory
     public function definition()
     {
         return [
-            'name'=>$this->faker->randomElement(['1er evaluacion de matematicas','1er evaluacion de sociales','1er evaluacion de geografia' ,'2do evaluacion mate','2do evaluacion geografia','2do evaluacion ciencian naturales']),
+            'namev'=>$this->faker->randomElement(['1er evaluacion de matematicas','1er evaluacion de sociales','1er evaluacion de geografia' ,'2do evaluacion mate','2do evaluacion geografia','2do evaluacion ciencian naturales']),
             'descripcion'=>$this->faker->sentence(),
-            'tema_id'=>$this->faker->numberBetween(1, 50),
+            'user_id'=>$this->faker->numberBetween(1,100),
+            'tema_id'=>$this->faker->numberBetween(1,6),
+            'fecha'=>$this->faker->randomElement(['2021-11-12 18:34:07','2021-12-6 18:34:07'])
+           
         ];
     }
 }

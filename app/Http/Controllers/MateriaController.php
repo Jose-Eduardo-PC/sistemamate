@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Models\curso;
 use App\Models\materia;
 use Illuminate\Http\Request;
 
@@ -27,7 +27,8 @@ class MateriaController extends Controller
     public function create()
     {
         $materia = materia::all();
-        return view('materia.create', compact('materia'));
+        $curso = curso::all();
+        return view('materia.create', compact('materia'),compact('curso'));
 
     }
 
@@ -70,7 +71,8 @@ class MateriaController extends Controller
     public function edit($id)
     {
         $materia = materia::find($id);
-        return view('materia.edit', compact('materia'));
+        $curso = curso::all();
+        return view('materia.edit', compact('materia'), compact('curso'));
     }
 
     /**
@@ -80,8 +82,9 @@ class MateriaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, materia $materia)
+    public function update(Request $request, materia $materia,$id)
     {
+        $materia = materia::find($id);
         $materia->name = $request->name;
         $materia->contenido = $request->contenido;
         $materia->descripcion = $request->descripcion;
@@ -96,8 +99,10 @@ class MateriaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(materia $materia,$id)
     {
-        //
+        $materia = materia::find($id);
+        $materia->delete();
+        return redirect()->route('materia.index');
     }
 }

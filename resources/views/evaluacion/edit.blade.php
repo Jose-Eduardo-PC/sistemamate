@@ -20,25 +20,31 @@
 	
 				<div>
 					<x-jet-label  value="{{ __('Name') }}" />
-					<x-jet-input class="block mt-1 w-full" type="text" name="name" value="{{$evaluacion->name}}" />
+					<x-jet-input class="block mt-1 w-full" type="text" name="namev" value="{{$evaluacion->name}}" />
 				</div>
 				<div>
 					<x-jet-label  value="{{ __('Descripcion') }}" />
 					<x-jet-input class="block mt-1 w-full" type="text" name="descripcion" value="{{$evaluacion->descripcion}}" />
 				</div>
-				<div>
-					<br>
-				<x-jet-label  value="{{ __('id_tema') }}" />
-				<select name="tema_id" value="{{$evaluacion->tema_id}}">
-					<option value="1"> 1 </option>
-					<option value="2"> 2  </option>
-					<option value="3"> 3  </option>
-					<option value="4"> 4 </option>
-					<option value="5"> 5  </option>
-					<option value="6"> 6  </option>
-				</select>
+					<div>
+						<x-jet-label  value="{{ __('Usuario') }}" />
+						<select name="user_id">
+						<option value="">seleccione una usuario</option>
+						@foreach($evaluacion as $evaluaciones)
+						<option value={{$evaluaciones->user_id}}>{{$evaluaciones->nameus}}</option>	
+						@endforeach
+						</select>
+					</div>
+					<div>
+						<x-jet-label  value="{{ __('Tema') }}" />
+						<select name="tema_id">
+						<option value="">seleccione una tema</option>
+						@foreach($tema as $temas)
+						<option value={{$temas->id}}>{{$temas->name}}</option>	
+						@endforeach
+						</select>
+					</div>
 	
-				<br>
 					<x-jet-button class="ml-4">
 							<br>
 						{{ __('Actulizar registro') }}

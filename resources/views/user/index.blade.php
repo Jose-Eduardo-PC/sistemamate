@@ -1,19 +1,38 @@
 @extends('layouts.layout')
+<h2> Bienvenido a la seccion de Usuarios </h2>
+@yield('title')
+<div class="botones">
+<a class="boton_personalizado" href="{{route('user.create')}}">Nuevo Usuario</a>
+<div>
+<table id="user">
+    <div>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Genero</th>
+        <th>Email</th>
+    </tr>
+    </thead>
+    <tbody>
+        @foreach ($user as $users)
+        <tr>
+           <td>{{$users->id}} </td>
+           <td><a href="{{route('user.show', $users->id)}}">{{$users->nameus}}</a></td>
+           <td>{{$users->genero}} </td>
+           <td>{{$users->email}} </td>
+        </tr>
+        @endforeach
+    </tbody>
+</table>
+</div>
+@yield('content')
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
+<script>
+    $(document).ready(function() {
+    $('#user').DataTable();
+} );
+</script>
 
-@section('title', 'Usuarios')
-
-@section('content')
-<h1>Bienvenido a la seccion de los usuarios </h1>
-<style>
-</style>
-<a href="{{route('user.create')}}">crear usuario</a>
-<ul>
-    @foreach ($user as $users)
-    <li>
-        <a href="{{route('user.show', $users->id)}}">{{$users->id}} {{$users->name}}</a>
-    </li>
-    @endforeach
-</ul>
-{{ $user->links() }}
-
-@endsection

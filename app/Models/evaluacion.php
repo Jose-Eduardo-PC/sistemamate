@@ -11,4 +11,8 @@ class evaluacion extends Model
     public function materia() {
         return $this->hasOne('App/Models/materia');
     }
+    public function User() {
+        return $this->belongsTo('App/Models/User');
+
+        }
 }

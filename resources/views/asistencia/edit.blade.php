@@ -18,18 +18,13 @@
 				@csrf
 				@method('put')
 
-				<x-jet-label  value="{{ __('user_id') }}" />
-				<select name="user_id" >
-					<option value="1"> 1 </option>
-					<option value="2"> 2  </option>
-					<option value="3"> 3  </option>
-					<option value="4"> 4 </option>
-					<option value="5"> 5  </option>
-					<option value="6"> 6  </option>
-					<option value="7"> 7 </option>
-					<option value="8"> 8  </option>
-					<option value="9"> 9  </option>
-				</select>
+				<x-jet-label  value="{{ __('Usuario') }}" />
+				<select name="user_id">
+					<option value="">seleccione un Usuario</option>
+					@foreach($user as $users)
+					<option value={{$users->id}}>{{$users->nameus}}</option>	
+					@endforeach
+					</select>
 				<div>
 					<x-jet-label value="{{ __('Estado') }}" />
 					<x-jet-input class="block mt-1 w-full" type="text" name="estado"  value="{{$asistencia->estado}}"/>

@@ -1,11 +1,16 @@
-@extends('layouts.layout')
+@extends('layouts.showlayout')
+<h4>Bienvenido al Tema {{$tema->name}} </h4>
+<h4>Descripcion:{{$tema->descripcion}}<h4>
 
-@section('title', 'Tema '. $tema->name)
-
+@yield('title')
+<form id="tema" action="{{route('tema.destroy',$tema)}}" method="POST">
+    @csrf
+    @method('delete')
+</form>
+<div class="botones">
+<a  class="boton_personalizado" href="{{route('tema.edit', $tema)}}">Editar</a>
+<button class="boton_personalizado" type="submit" form="tema" >Eliminar</button>
+<a class="boton_personalizado" href="{{route('tema.index')}}">volver a Temas</a>
+</div>
 @section('content')
-
-<h1>Bienvenido a la {{$tema->name}} </h1>
-<a href="{{route('tema.edit', $tema)}}">editar tema</a>
-<br>
-<a href="{{route('tema.index')}}">volver a los temas</a>
 @endsection

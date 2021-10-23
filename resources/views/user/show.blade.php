@@ -1,12 +1,14 @@
-@extends('layouts.layout')
-
-@section('title', 'Usuarios')
-
+@extends('layouts.showlayout')
+@yield('title' ,'Usuario')
+<h4>Bienvenido este es el usuario {{$user->id}} {{$user->nameus}} </h4>
+<form id="eliminar" action="{{route('user.destroy',$user)}}" method="POST">
+    @csrf
+    @method('delete')
+</form>
+<div class="botones">
+<a class="boton_personalizado" href="{{route('user.edit', $user)}}">Editar Usuario</a>
+<button class="boton_personalizado" type="submit" form="eliminar">Eliminar</button>
+<a class="boton_personalizado" href="{{route('user.index')}}" >Volver a usuarios...</a>
+</div>
 @section('content')
-
-<h1>Bienvenido este es el usuario {{$user->id}} {{$user->name}} </h1>
-<br>
-<a href="{{route('user.edit', $user)}}">editar curso</a>
-<br>
-<a href="{{route('user.index')}}" class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">Volver a usuarios...</a>
 @endsection

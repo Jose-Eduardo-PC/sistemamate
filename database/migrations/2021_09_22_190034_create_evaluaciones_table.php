@@ -15,11 +15,14 @@ class CreateEvaluacionesTable extends Migration
     {
         Schema::create('evaluacions', function (Blueprint $table) {
             $table->increments('id')->unsigned();
-            $table->string('name');
+            $table->string('namev');
             $table->text('descripcion');
+            $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('tema_id');
+            $table->date('fecha')->nullable();
             $table->timestamps();
-            $table->foreign('tema_id')->references('id')->on('temas');
+            $table->foreign('tema_id')->references('id')->on('temas')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

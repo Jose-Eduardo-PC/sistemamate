@@ -4,8 +4,15 @@
 
 @section('content')
 
-<h1>Bienvenido a la {{$actividad->name}} </h1>
-<a href="{{route('actividad.edit', $actividad)}}">editar Actividades</a>
-<br>
-<a href="{{route('actividad.index')}}" class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">Volver a actividades...</a>
+<h4>Bienvenido a la actividad {{$actividad->name}} </h4>
+@section('content')
+<form id="eliminar" action="{{route('actividad.destroy',$actividad)}}" method="POST">
+    @csrf
+    @method('delete')
+</form>
+<div class="botones">
+<a class="boton_personalizado" href="{{route('actividad.edit', $actividad)}}">Editar</a>
+<button class="boton_personalizado" type="submit" form="eliminar">Eliminar</button>
+<a class="boton_personalizado" href="{{route('actividad.index')}}" >Volver</a>
+</div>
 @endsection

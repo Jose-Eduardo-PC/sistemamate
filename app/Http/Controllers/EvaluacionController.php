@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Models\evaluacion;
+use App\Models\tema;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class EvaluacionController extends Controller
@@ -13,8 +15,8 @@ class EvaluacionController extends Controller
      */
     public function index()
     {
-        $evaluacion = evaluacion::orderBy('id','asc')->paginate();
-        return view('evaluacion.index', compact('evaluacion'));
+        $user = User::all();
+        return view('evaluacion.index', compact('user'));
     }
 
     /**
@@ -24,8 +26,10 @@ class EvaluacionController extends Controller
      */
     public function create()
     {
-        $evaluacion = evaluacion::all();
-        return view('evaluacion.create', compact('evaluacion'));
+        $tema = tema::all();
+        $evaluacion = evaluacion::join('users','users.id','=','evaluacions.user_id')
+        ->get();
+        return view('evaluacion.create', compact('evaluacion'), compact('tema'));
     }
 
     /**
@@ -37,12 +41,13 @@ class EvaluacionController extends Controller
     public function store(Request $request)
     {
         $evaluacion = new evaluacion();
-
-        $evaluacion->name = $request->name;
+        $evaluacion->namev = $request->namev;
         $evaluacion->descripcion = $request->descripcion;
+        $evaluacion->user_id = $request->user_id;
         $evaluacion->tema_id = $request->tema_id;
+        $evaluacion->fecha = $request->fecha;
         $evaluacion->save();
-        return redirect()->route('evaluacion.show',$evaluacion);
+        return redirect()->route('evaluacion.index');
     }
 
     /**
@@ -53,10 +58,16 @@ class EvaluacionController extends Controller
      */
     public function show($id)
     {
-        $evaluacion = evaluacion::find($id);
+        $evaluacion = evaluacion::join('users','users.id','=','evaluacions.user_id')->join('temas','temas.id','=','evaluacions.tema_id')
+        ->where('users.id','=',$id)
+        ->get();
         return view('evaluacion.show', compact('evaluacion'));
     }
-
+    public function show2($id)
+    {
+        $evaluacion = evaluacion::find($id);
+        return view('evaluacion2.show', compact('evaluacion'));
+    }
     /**
      * Show the form for editing the specified resource.
      *
@@ -65,8 +76,10 @@ class EvaluacionController extends Controller
      */
     public function edit($id)
     {
-        $evaluacion = evaluacion::find($id);
-        return view('evaluacion.edit', compact('evaluacion'));
+        $tema = tema::all();
+        $evaluacion = evaluacion::join('users','users.id','=','evaluacions.user_id')
+        ->get();
+        return view('evaluacion.edit', compact('evaluacion'),compact('tema'));
     }
 
     /**
@@ -76,15 +89,15 @@ class EvaluacionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, evaluacion $evaluacion)
     {
-        $evaluacion = new evaluacion();
-
-        $evaluacion->name = $request->name;
+        $evaluacion->namev = $request->namev;
         $evaluacion->descripcion = $request->descripcion;
+        $evaluacion->user_id = $request->user_id;
         $evaluacion->tema_id = $request->tema_id;
+        $evaluacion->fecha = $request->fecha;
         $evaluacion->save();
-        return redirect()->route('evaluacion.show',$evaluacion);
+        return redirect()->route('evaluacion.index',$evaluacion);
     }
 
     /**
@@ -93,8 +106,9 @@ class EvaluacionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(evaluacion $evaluacion)
     {
-        //
+        $evaluacion->delete();
+        return redirect()->route('evaluacion.index');
     }
 }

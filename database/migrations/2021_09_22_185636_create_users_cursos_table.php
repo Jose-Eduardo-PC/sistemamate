@@ -13,12 +13,12 @@ class CreateUsersCursosTable extends Migration
      */
     public function up()
     {
-        Schema::create('users_cursos', function (Blueprint $table) {
+        Schema::create('user_cursos', function (Blueprint $table) {
             $table->unsignedBigInteger('user_id')->nullable();
             $table->unsignedBigInteger('curso_id');
             $table->text('estado');
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('curso_id')->references('id')->on('cursos');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('curso_id')->references('id')->on('cursos')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

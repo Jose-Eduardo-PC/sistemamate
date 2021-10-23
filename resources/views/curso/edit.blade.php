@@ -25,7 +25,7 @@
 				
 				<div>
 					<br>
-				<select name="grado" value="{{$curso->grado}}">
+				<select name="grado">
 					<option value="1er grado"> 1er grado  </option>
 					<option value="2do grado"> 2do grado  </option>
 					<option value="3er grado"> 3er grado  </option>
@@ -34,7 +34,7 @@
 				</div>
 	
 				<br>
-					<x-jet-button class="ml-4">
+					<x-jet-button class="mt-4">
 							<br>
 						{{ __('Actulizar registro') }}
 					</x-jet-button>

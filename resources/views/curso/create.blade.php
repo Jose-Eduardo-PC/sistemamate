@@ -29,15 +29,11 @@
 					<option value="2do grado"> 2do grado  </option>
 					<option value="3er grado"> 3er grado  </option>
 				</select>
-			
 				</div>
-	
-				<br>
-					<x-jet-button class="ml-4">
+					<x-jet-button class="mt-4">
 							<br>
 						{{ __('Registro') }}
 					</x-jet-button>
-				</div>
 			</form>
 		</x-jet-authentication-card>
 	</x-guest-layout>

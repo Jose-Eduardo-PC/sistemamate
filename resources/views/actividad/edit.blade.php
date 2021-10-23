@@ -22,31 +22,25 @@
 					<x-jet-label  value="{{ __('Name') }}" />
 					<x-jet-input class="block mt-1 w-full" type="text" name="name" value="{{$actividad->name}}" />
 				</div>
-				<div>
+				<div class="mt-4">
 					<x-jet-label  value="{{ __('Descripcion') }}" />
-					<x-jet-input class="block mt-1 w-full" type="text" name="descripcion" value="{{$actividad->descripcion}}" />
+					<label>
+					<textarea rows="6" cols="38" class="block mt-1 w-full" name="descripcion" ><?php echo $actividad->descripcion?></textarea>
+					</label>
 				</div>
-				<div>
-					<br>
-				<x-jet-label  value="{{ __('id_tema') }}" />
-				<select name="tema_id" value="{{$actividad->tema_id}}">
-					<option value="1"> 1 </option>
-					<option value="2"> 2  </option>
-					<option value="3"> 3  </option>
-					<option value="4"> 4 </option>
-					<option value="5"> 5  </option>
-					<option value="6"> 6  </option>
-					<option value="7"> 7 </option>
-					<option value="8"> 8  </option>
-					<option value="9"> 9  </option>
-				</select>
-	
-				<br>
-					<x-jet-button class="ml-4">
+				<div class="mt-4">
+					<x-jet-label  value="{{ __('Tema') }}" />
+					<select name="tema_id">
+					<option value="">seleccione una tema</option>
+					@foreach($tema as $temas)
+					<option value={{$temas->id}}>{{$temas->name}}</option>	
+					@endforeach
+					</select>
+				</div>
+					<x-jet-button class="mt-4">
 							<br>
 						{{ __('Actulizar registro') }}
 					</x-jet-button>
-				</div>
 			</form>
 		</x-jet-authentication-card>
 	</x-guest-layout>

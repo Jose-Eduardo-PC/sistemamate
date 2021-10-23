@@ -22,10 +22,10 @@ class MateriaFactory extends Factory
     public function definition()
     {
         return [
-            'name'=>$this->faker->randomElement(['Geografía','Economía','Medio' ,'ambiente','Biografías','Arte']),
+            'name'=>$this->faker->randomElement(['Geografía','Economía','Medioambiente','Biografías','Arte']),
             'contenido'=>$this->faker->sentence(),
             'descripcion'=>$this->faker->sentence(),
-            'curso_id'=>$this->faker->numberBetween(1, 50),
+            'curso_id'=>$this->faker->numberBetween(1,4),
         ];
     }
 }

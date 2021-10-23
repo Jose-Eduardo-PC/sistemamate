@@ -1,41 +1,38 @@
 @extends('layouts.layout')
 
-@section('title', 'Asistencia')
+@section('title', 'Usuarios Curso')
 
 @section('content')
-
 <div>
-    <table id="asistencia">
+    <table id="usercurso">
         <div>
         <thead>
         <tr>
-        <th>ID</th>
-        <th>Nombre</th>
-        <th>Estado</th>
-        <th>Email</th>
-
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Genero</th>
+            <th>Email</th>
         </tr>
         </thead>
         <tbody>
-            @foreach ($asistencia as $asistencias)
+            @foreach ($user as $users)
             <tr>
-           <td>{{$asistencias->user_id}} </td>
-           <td>{{$asistencias->nameus}}</a></td>
-           <td>{{$asistencias->estado}} </td>
-           <td>{{$asistencias->email}} </td>
+               <td>{{$users->id}} </td>
+               <td><a href="{{route('usercurso.show', $users->id)}}">{{$users->nameus}}</a></td>
+               <td>{{$users->genero}} </td>
+               <td>{{$users->email}} </td>
             </tr>
             @endforeach
         </tbody>
     </table>
     </div>
-    <a class="boton_personalizado" href="{{route('asistencia.index')}}">volver</a>
     @yield('content')
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
     <script>
         $(document).ready(function() {
-        $('#asistencia').DataTable();
+        $('#usercurso').DataTable();
     } );
     </script>
 @endsection

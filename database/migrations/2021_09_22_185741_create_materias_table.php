@@ -19,7 +19,7 @@ class CreateMateriasTable extends Migration
             $table->text('contenido');
             $table->text('descripcion');
             $table->unsignedBigInteger('curso_id');
-            $table->foreign('curso_id')->references('id')->on('cursos');
+            $table->foreign('curso_id')->references('id')->on('cursos')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

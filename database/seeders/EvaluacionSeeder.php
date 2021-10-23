@@ -14,6 +14,6 @@ class EvaluacionSeeder extends Seeder
      */
     public function run()
     {
-        evaluacion::factory(50)->create();
+        evaluacion::factory(100)->create();
     }
 }

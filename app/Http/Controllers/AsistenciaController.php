@@ -14,9 +14,8 @@ class AsistenciaController extends Controller
      */
     public function index()
     {
-
-        $asistencia = asistencia::orderBy('id','desc')->paginate();
-        return view('asistencia.index', compact('asistencia'));
+        $user = User::all();
+        return view('asistencia.index', compact('user'));
     }
 
     /**
@@ -26,7 +25,8 @@ class AsistenciaController extends Controller
      */
     public function create()
     {
-        return view('asistencia.create');
+        $user = User::all();
+        return view('asistencia.create',compact('user'));
     }
 
     /**
@@ -37,12 +37,11 @@ class AsistenciaController extends Controller
      */
     public function store(Request $request,asistencia $asistencia)
     {
-        
         $asistencia->user_id = $request->user_id;
         $asistencia->estado = $request->estado;
         $asistencia->fecha= $request->fecha;
         $asistencia->save();
-        return redirect()->route('asistencia.show',$asistencia);
+        return redirect()->route('asistencia.index',$asistencia);
     }
 
     /**
@@ -53,8 +52,11 @@ class AsistenciaController extends Controller
      */
     public function show($id)
     {
-        $asistencia = asistencia::find($id);
+        $asistencia = asistencia::join('users','users.id','=','asistencias.user_id')
+        ->where('users.id','=',$id)
+        ->get();
         return view('asistencia.show', compact('asistencia'));
+
     }
 
     /**
@@ -91,8 +93,9 @@ class AsistenciaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(asistencia $asistencia)
     {
-        //
+        $asistencia->delete();
+        return redirect()->route('asistencia.index');
     }
 }

@@ -14,6 +14,6 @@ class AsistenciaSeeder extends Seeder
      */
     public function run()
     {
-        asistencia::factory(50)->create();
+        asistencia::factory(100)->create();
     }
 }

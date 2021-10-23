@@ -64,11 +64,15 @@ class User extends Authenticatable
 
         }
     public function rol() {
-            return $this->hasMany('App/Models/rol');
+            return $this->belongsTo('App/Models/rol');
     
             }
     public function user_curso() {
                 return $this->hasMany('App/Models/user_curso');
         
     }
+    public function evaluacion() {
+        return $this->hasMany('App/Models/evaluacion');
+
+}
 }

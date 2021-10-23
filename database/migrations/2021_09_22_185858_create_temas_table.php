@@ -18,7 +18,7 @@ class CreateTemasTable extends Migration
             $table->string('name');
             $table->text('descripcion');
             $table->unsignedBigInteger('materia_id');
-            $table->foreign('materia_id')->references('id')->on('materias');
+            $table->foreign('materia_id')->references('id')->on('materias')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();   
         });
     }

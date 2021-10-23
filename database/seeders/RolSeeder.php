@@ -1,10 +1,11 @@
 <?php
 
 namespace Database\Seeders;
-use App\Models\Materia;
+
+use App\Models\rol;
 use Illuminate\Database\Seeder;
 
-class MateriaSeeder extends Seeder
+class RolSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,6 +14,6 @@ class MateriaSeeder extends Seeder
      */
     public function run()
     {
-        Materia::factory(5)->create();
+        rol::factory(3)->create();
     }
 }

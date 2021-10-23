@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\actividad;
+use App\Models\tema;
 use Illuminate\Http\Request;
 
 class ActividadController extends Controller
@@ -14,7 +15,7 @@ class ActividadController extends Controller
      */
     public function index()
     {
-        $actividad = actividad::orderBy('id','asc')->paginate();
+        $actividad = actividad::all();
         return view('actividad.index', compact('actividad'));
     }
 
@@ -25,7 +26,8 @@ class ActividadController extends Controller
      */
     public function create()
     {
-        return view('actividad.create');
+        $tema = tema::all();
+        return view('actividad.create',compact('tema'));
     }
 
     /**
@@ -64,8 +66,9 @@ class ActividadController extends Controller
      */
     public function edit($id)
     {
+        $tema = tema::all();
         $actividad = actividad::find($id);
-        return view('actividad.edit', compact('actividad'));
+        return view('actividad.edit', compact('actividad'), compact('tema'));
     }
 
     /**
@@ -91,8 +94,9 @@ class ActividadController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(actividad $actividad)
     {
-        //
+        $actividad->delete();
+        return redirect()->route('actividad.index');
     }
 }

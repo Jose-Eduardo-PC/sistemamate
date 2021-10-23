@@ -1,53 +1,43 @@
 @extends('layouts.layout')
-
-@section('title', 'Materia')
-
+<h1><a>Bienvenido a crear Materia</a></h1>
 @section('content')
-
-<h1><a class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">Bienvenido a crear cursos</a></h1>
-<br>
-
-	</div>
 	<x-guest-layout>
 		<x-jet-authentication-card>
 			<x-slot name="logo">
 				<x-jet-authentication-card-logo />
 			</x-slot>
-	
 			<form action="{{ route('materia.store') }}" method="POST">
 				@csrf
 	
-				<div>
+				<div class="mt-4">
 					<x-jet-label  value="{{ __('Name') }}" />
 					<x-jet-input class="block mt-1 w-full" type="text" name="name"  />
 				</div>
 				
-				<div>
+				<div class="mt-4">
 					<x-jet-label  value="{{ __('Contenido') }}" />
 					<x-jet-input class="block mt-1 w-full" type="text" name="contenido"  />
 				</div>
-				<div>
+				<div class="mt-4">
 					<x-jet-label  value="{{ __('Descripcion') }}" />
-					<x-jet-input class="block mt-1 w-full" type="text" name="descripcion"  />
+					<label>
+					<textarea rows="6" cols="38" class="block mt-1 w-full" name="descripcion" ></textarea>
+					</label>
 				</div>
-				<div>
-					<br>
-				<select name="curso_id" >
-					<option value="1"> 1 </option>
-					<option value="2"> 2  </option>
-					<option value="3"> 3  </option>
-					<option value="4"> 4 </option>
-					<option value="5"> 5  </option>
-					<option value="6"> 6  </option>
-				</select>
-			
+				<div class="mt-4">
+					<x-jet-label  value="{{ __('Curso') }}" />
+					<select name="curso_id">
+					<option value="">seleccione una materia</option>
+					@foreach($curso as $cursos)
+					<option value={{$cursos->id}}>{{$cursos->name}}</option>	
+					@endforeach
+					</select>
 				</div>
-				<br>
-					<x-jet-button class="ml-4">
+					<x-jet-button class="mt-4">
 							<br>
 						{{ __('Registro') }}
 					</x-jet-button>
-				</div>
 			</form>
 		</x-jet-authentication-card>
 	</x-guest-layout>
+	@endsection

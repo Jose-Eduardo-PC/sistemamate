@@ -1,8 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Models\curso;
+use App\Models\rol;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -15,7 +14,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = User::paginate();
+        $user = User::all();
         return view('user.index', compact('user'));
     }
 
@@ -26,7 +25,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('user.create');
+        $rol = rol::all();
+        return view('user.create', compact('rol'));
     }
 
     /**
@@ -38,8 +38,9 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $user = new user();
-
-        $user->name = $request->name;
+        $user->nameus = $request->nameus;
+        $user->genero = $request->genero;
+        $user->rol_id = $request->rol_id;
         $user->email = $request->email;
         $user->password = $request->password;
         $user->save();
@@ -66,8 +67,8 @@ class UserController extends Controller
      */
     public function edit(user $user)
     {
-        
-        return view('user.edit', compact('user'));
+        $rol = rol::all();
+        return view('user.edit', compact('user'),compact('rol'));
         
     }
 
@@ -80,7 +81,9 @@ class UserController extends Controller
      */
     public function update(request $request,user $user)
     {
-        $user->name = $request->name;
+        $user->nameus = $request->nameus;
+        $user->genero = $request->genero;
+        $user->rol_id = $request->rol_id;
         $user->email = $request->email;
         $user->password = $request->password;
         $user->save();
@@ -93,8 +96,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        //
+        $user->delete();
+        return redirect()->route('user.index');
     }
 }

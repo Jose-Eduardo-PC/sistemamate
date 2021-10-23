@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\materia;
 use App\Models\tema;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,8 @@ class TemaController extends Controller
      */
     public function create()
     {
-        return view('tema.create');
+        $materia = materia::all();
+        return view('tema.create', compact('materia'));
     }
 
     /**
@@ -63,8 +65,9 @@ class TemaController extends Controller
      */
     public function edit($id)
     {
+        $materia = materia::all();
         $tema = tema::find($id);
-        return view('tema.edit', compact('tema'));
+        return view('tema.edit', compact('tema'),compact('materia'));
     }
 
     /**
@@ -89,8 +92,9 @@ class TemaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(tema $tema)
     {
-        //
+        $tema->delete();
+        return redirect()->route('tema.index');
     }
 }

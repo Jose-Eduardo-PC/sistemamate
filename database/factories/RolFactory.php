@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\curso;
+use App\Models\rol;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class CursoFactory extends Factory
+class RolFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = curso::class;
+    protected $model = rol::class;
 
     /**
      * Define the model's default state.
@@ -22,8 +22,8 @@ class CursoFactory extends Factory
     public function definition()
     {
         return [
-            'name'=>$this->faker->randomElement(['Comunicación','Inglés','Arte y Cultura','Ciencias ']),
-            'grado'=>$this->faker->randomElement(['1er grado','2do grado','3er grado']),
+            'name'=>$this->faker->randomElement(['Estudiante','Profesor','Conserje el Exito']),
+            'descripcion'=>$this->faker->sentence(),
         ];
     }
 }

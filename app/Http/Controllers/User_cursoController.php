@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\curso;
+use App\Models\User;
+use App\Models\user_curso;
 use Illuminate\Http\Request;
 
-class CursosController extends Controller
+class User_cursoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +15,8 @@ class CursosController extends Controller
      */
     public function index()
     {
-        $curso = curso::orderBy('id','desc')->paginate();
-        return view('curso.index', compact('curso'));
+        $user = user::paginate();
+        return view('usercurso.index', compact('user'));
     }
 
     /**
@@ -25,8 +26,7 @@ class CursosController extends Controller
      */
     public function create()
     {
-        $curso = curso::all();
-        return view('curso.create', compact('curso'));
+        //
     }
 
     /**
@@ -37,11 +37,7 @@ class CursosController extends Controller
      */
     public function store(Request $request)
     {
-        $curso = new curso();
-        $curso->name = $request->name;
-        $curso->grado = $request->grado;
-        $curso->save();
-        return redirect()->route('curso.show',$curso);
+        //
     }
 
     /**
@@ -50,9 +46,12 @@ class CursosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(curso $curso)
+    public function show($id)
     {
-        return view('curso.show', compact('curso'));
+        $usercur = user_curso::join('users','users.id','=','user_cursos.user_id')->join('cursos','cursos.id','=','user_cursos.curso_id')
+        ->where('users.id','=',$id)
+        ->get();
+         return view('usercurso.show', compact('usercur'));
     }
 
     /**
@@ -61,9 +60,9 @@ class CursosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(curso $curso)
+    public function edit($id)
     {
-        return view('curso.edit', compact('curso'));
+        //
     }
 
     /**
@@ -73,12 +72,9 @@ class CursosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, curso $curso)
+    public function update(Request $request, $id)
     {
-        $curso->name = $request->name;
-        $curso->grado = $request->grado;
-        $curso->save();
-        return redirect()->route('curso.show',$curso);
+        //
     }
 
     /**
@@ -87,9 +83,8 @@ class CursosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(curso $curso)
+    public function destroy($id)
     {
-        $curso->delete();
-        return redirect()->route('curso.index');
+        //
     }
 }
