@@ -1,5 +1,4 @@
 @extends('layouts.layout')
-
 <h4>Bienvenido al Curso {{$curso->name}} </h4>
 @section('content')
 <form id="eliminar" action="{{route('curso.destroy',$curso)}}" method="POST">

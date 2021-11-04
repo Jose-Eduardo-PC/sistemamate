@@ -1,11 +1,10 @@
-@extends('layouts.layout')
-
-@section('title', 'Evaluacion ')
+@extends('layouts.Listalayout')
 
 @section('content')
-
-<div>
-    <table id="evaluacion">
+<div class="mt-4">
+    <div class="card">
+        <div class="card-body">
+    <table id="evaluacion" class="table table-striped table-bordered">
         <div>
         <thead>
         <tr>
@@ -27,14 +26,14 @@
         </tbody>
     </table>
     </div>
+</div>
+</div>
+<div class="botones mt-4">
     <a class="boton_personalizado" href="{{route('evaluacion.index')}}">volver</a>
-    @yield('content')
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
+    </div>
+  @section('js')
+
     <script>
-        $(document).ready(function() {
         $('#evaluacion').DataTable();
-    } );
     </script>
 @endsection

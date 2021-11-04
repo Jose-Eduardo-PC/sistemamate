@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AcercadeController;
+use App\Http\Controllers\InicioController;
 use App\Http\Controllers\TemaController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\User_cursoController;
@@ -29,6 +31,8 @@ Route::resource('usercurso', User_cursoController::class);
 Route::resource('actividad', ActividadController::class);
 Route::resource('curso', CursosController::class);
 Route::resource('asistencia', AsistenciaController::class);
+Route::resource('inicio', InicioController::class);
+Route::resource('acercade', AcercadeController::class);
 Route::resource('evaluacion', EvaluacionController::class);
 Route::resource('evaluacion2', EvaluacionController::class);
 Route::resource('materia', MateriaController::class);

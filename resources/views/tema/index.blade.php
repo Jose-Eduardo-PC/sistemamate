@@ -1,8 +1,38 @@
-@extends('layouts.layout')
+@extends('layouts.Listalayout')
+<header class="header">
+    <div class="container logo-nav-container">
+        <a href="#" class="logo">Logo</a>
+            <nav class="navigation">
+                <ul class="menu">
+            <li><a href="inicio">Home</a></li> 
+            <li><a href="acercade">aserca de</a></li>
+            <li><a href="#">listas de registros  </a>
+                <ul class="submenu">
+                    <li><a href="user">usuarios</a></li> 
+                    <li><a href="materia">materias</a></li>
+                    <li><a href="evaluacion">evaluaciones</a></li>
+                    <li><a href="asistencia">asistencias</a></li>
+                    <li><a href="curso">curso</a></li>
+                    <li><a href="cursouser">curso-user</a></li>
+                    <li><a href="tema">tema</a></li>
+                </ul>
+            </li>   
+            </ul>
+            </nav>
+    </div>
+</header>
+<div class="mt-4">
 <h2>Bienvenido a la seccion de Temas </h2>
-@yield('title')
-<table id="tema">
-    <a class="boton_personalizado" href="{{route('tema.create')}}">Nueva tema</a>
+</div>
+@section('content')
+<div class="botones mt-4">
+<a class="boton_personalizado" href="{{route('tema.create')}}">Nueva tema</a>
+<a class="boton_personalizado" href="{{route('tema.index')}}">volver</a>
+</div>
+    <div class="mt-4">
+        <div class="card">
+            <div class="card-body">
+                <table id="tema" class="table table-striped table-bordered">
         <thead>
         <tr>
             <th>ID</th>
@@ -20,13 +50,26 @@
             @endforeach
         </tbody>
     </table>
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
+</div>
+</div>
+</div>
+@section('js')
     <script>
-        $(document).ready(function() {
-        $('#tema').DataTable();
-    } );
+        $('#tema').DataTable({
+            "language": {
+            "lengthMenu": "Mostrar _MENU_ Registros de pagina",
+            "zeroRecords": "Nada encontrado - disculpa",
+            "info": "Mostrando la pagina _PAGE_ de _PAGES_",
+            "infoEmpty": "No hay registros disponibles",
+            "infoFiltered": "(filtrado de _MAX_ registros totales)",
+            "search" : "Buscar",
+            "paginate" :{
+                "next" : "Siguiente",
+                "previous" : "Anterior"
+            }
+            
+        }
+        });
     </script>
-    @section('content')
+    
 @endsection

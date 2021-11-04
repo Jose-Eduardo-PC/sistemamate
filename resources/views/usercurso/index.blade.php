@@ -1,38 +1,75 @@
-@extends('layouts.layout')
-
-@section('title', 'Usuarios Curso')
-
+@extends('layouts.Listalayout')
+<header class="header">
+    <div class="container logo-nav-container">
+        <a href="#" class="logo">Logo</a>
+        <<nav class="navigation">
+            <ul class="menu">
+        <li><a href="inicio">Home</a></li> 
+        <li><a href="acercade">aserca de</a></li>
+        <li><a href="#">listas de registros  </a>
+         <ul class="submenu">
+                 <li><a href="user">usuarios</a></li> 
+                 <li><a href="materia">materias</a></li>
+                 <li><a href="evaluacion">evaluaciones</a></li>
+                 <li><a href="asistencia">asistencias</a></li>
+                 <li><a href="curso">curso</a></li>
+                 <li><a href="cursouser">curso-user</a></li>
+                 <li><a href="tema">tema</a></li>
+         </ul>
+        </li>
+         </ul>
+        </nav>
+</div>
+</header>
+<div class="mt-4">
+<h2>Bienvenido a Usuarios-Cursos</h2>
+</div>
 @section('content')
-<div>
-    <table id="usercurso">
-        <div>
-        <thead>
-        <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Genero</th>
-            <th>Email</th>
-        </tr>
-        </thead>
-        <tbody>
-            @foreach ($user as $users)
-            <tr>
-               <td>{{$users->id}} </td>
-               <td><a href="{{route('usercurso.show', $users->id)}}">{{$users->nameus}}</a></td>
-               <td>{{$users->genero}} </td>
-               <td>{{$users->email}} </td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
+<div class="mt-4">
+<a class="boton_personalizado" href="{{route('user.index')}}">volver</a>
+</div>
+<div class="mt-4">
+    <div class="card">
+        <div class="card-body">
+                <table id="usercurso" class="table table-striped table-bordered">
+                    <div>
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Genero</th>
+                        <th>Email</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($user as $users)
+                        <tr>
+                        <td>{{$users->id}} </td>
+                        <td><a href="{{route('usercurso.show', $users->id)}}">{{$users->nameus}}</a></td>
+                        <td>{{$users->genero}} </td>
+                        <td>{{$users->email}} </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
-    @yield('content')
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
+    @section('js')
     <script>
-        $(document).ready(function() {
-        $('#usercurso').DataTable();
-    } );
+        $('#usercurso').DataTable({
+            "language": {
+            "lengthMenu": "Mostrar _MENU_ Registros de pagina",
+            "zeroRecords": "Nada encontrado - disculpa",
+            "info": "Mostrando la pagina _PAGE_ de _PAGES_",
+            "infoEmpty": "No hay registros disponibles",
+            "infoFiltered": "(filtrado de _MAX_ registros totales)",
+            "search" : "Buscar",
+            "paginate" :{
+                "next" : "Siguiente",
+                "previous" : "Anterior"
+            }
+        }
+        });
     </script>
 @endsection
