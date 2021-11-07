@@ -96,10 +96,10 @@
          }
          h1{
         font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
-        font-size: 92px;
-        padding: 80px 50px;
+        font-size: 80px;
+        padding: 50px 50px;
         text-align: center;
-        margin-top: 150px;
+        margin-top: 100px;
         text-transform: uppercase;
         text-rendering: optimizeLegibility;
           }

@@ -6,6 +6,7 @@
     <ul class="menu">
 <li><a href="inicio">Home</a></li> 
 <li><a href="acercade">aserca de</a></li>
+<li><a href="{{route('contactanos.index')}}">contactanos</a></li>
 <li><a href="#">listas de registros  </a>
  <ul class="submenu">
          <li><a href="user">usuarios</a></li> 

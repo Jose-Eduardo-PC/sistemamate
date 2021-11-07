@@ -26,6 +26,11 @@
         .linea{
             border-top: 5px solid black;
         }
+        .imagen{
+            width: 25%;
+            height: 25%;
+        
+        }
         .contenedor-imagenes{
             display: flex;
             margin: auto;
@@ -35,7 +40,8 @@
         }
         .contenedor-imagenes .imagen{
             position: relative;
-            box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 75)
+            box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 75);
+            
         }
          body{
         }
@@ -56,7 +62,6 @@
             align-items: center;
             
         }
-       
         .submenu{
             position: absolute;
             background: black;

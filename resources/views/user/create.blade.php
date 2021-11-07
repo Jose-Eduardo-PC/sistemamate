@@ -1,7 +1,6 @@
 @extends('layouts.registroly')
 <h1><a>Bienvenido a crear usuarios</a></h1>
 @section('title', 'Usuarios')
-	</div>
 	<x-guest-layout>
 		<x-jet-authentication-card>
 			<x-slot name="logo">

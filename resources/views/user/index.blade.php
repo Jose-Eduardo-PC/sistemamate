@@ -2,7 +2,7 @@
 <header class="header">
     <div class="container logo-nav-container">
         <a href="#" class="logo">Logo</a>
-        <<nav class="navigation">
+        <nav class="navigation">
             <ul class="menu">
         <li><a href="inicio">Home</a></li> 
         <li><a href="acercade">aserca de</a></li>

@@ -11,6 +11,9 @@ use App\Http\Controllers\ActividadController;
 use App\Http\Controllers\AsistenciaController;
 use App\Http\Controllers\EvaluacionController;
 use App\Http\Controllers\MateriaController;
+use App\Http\Controllers\ContactanosController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,6 +40,7 @@ Route::resource('evaluacion', EvaluacionController::class);
 Route::resource('evaluacion2', EvaluacionController::class);
 Route::resource('materia', MateriaController::class);
 Route::resource('tema', TemaController::class);
+Route::resource('contactanos', ContactanosController::class);
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
