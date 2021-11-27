@@ -22,8 +22,8 @@ class CursoFactory extends Factory
     public function definition()
     {
         return [
-            'name'=>$this->faker->randomElement(['Comunicación','Inglés','Arte y Cultura','Ciencias ']),
-            'grado'=>$this->faker->randomElement(['1er grado','2do grado','3er grado']),
+            'namecur' => $this->faker->randomElement(['Comunicación', 'Inglés', 'Arte y Cultura', 'Ciencias ']),
+            'grado' => $this->faker->randomElement(['1er grado', '2do grado', '3er grado']),
         ];
     }
 }

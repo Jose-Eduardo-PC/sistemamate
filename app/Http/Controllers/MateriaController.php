@@ -15,7 +15,7 @@ class MateriaController extends Controller
      */
     public function index()
     {
-        $materia = materia::orderBy('id','asc')->paginate();
+        $materia = materia::orderBy('id', 'asc')->paginate();
         return view('materia.index', compact('materia'));
     }
 
@@ -28,8 +28,7 @@ class MateriaController extends Controller
     {
         $materia = materia::all();
         $curso = curso::all();
-        return view('materia.create', compact('materia'),compact('curso'));
-
+        return view('materia.create', compact('materia'), compact('curso'));
     }
 
     /**
@@ -42,12 +41,12 @@ class MateriaController extends Controller
     {
         $materia = new materia();
 
-        $materia->name = $request->name;
+        $materia->namemat = $request->namemat;
         $materia->contenido = $request->contenido;
         $materia->descripcion = $request->descripcion;
         $materia->curso_id = $request->curso_id;
         $materia->save();
-        return redirect()->route('materia.show',$materia);
+        return redirect()->route('materia.show', $materia);
     }
 
     /**
@@ -82,10 +81,10 @@ class MateriaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, materia $materia,$id)
+    public function update(Request $request, materia $materia, $id)
     {
         $materia = materia::find($id);
-        $materia->name = $request->name;
+        $materia->namemat = $request->namemat;
         $materia->contenido = $request->contenido;
         $materia->descripcion = $request->descripcion;
         $materia->curso_id = $request->curso_id;
@@ -99,7 +98,7 @@ class MateriaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(materia $materia,$id)
+    public function destroy(materia $materia, $id)
     {
         $materia = materia::find($id);
         $materia->delete();

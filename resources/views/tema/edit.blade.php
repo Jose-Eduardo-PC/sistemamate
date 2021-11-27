@@ -13,7 +13,7 @@
 				@method('put')
 				<div class="mt-4">
 					<x-jet-label  value="{{ __('Name') }}" />
-					<x-jet-input class="block mt-1 w-full" type="text" name="name" value="{{$tema->name}}" />
+					<x-jet-input class="block mt-1 w-full" type="text" name="nametm" value="{{$tema->namemt}}" />
 				</div>
 				<div class="mt-4">
 					<x-jet-label  value="{{ __('Descripcion') }}" />

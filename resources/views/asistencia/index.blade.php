@@ -1,30 +1,10 @@
 @extends('layouts.Listalayout')
-<header class="header">
-    <div class="container logo-nav-container">
-        <a href="#" class="logo">Logo</a>
-            <nav class="navigation">
-                <ul class="menu">
-            <li><a href="inicio">Home</a></li> 
-            <li><a href="acercade">aserca de</a></li>
-            <li><a href="#">listas de registros  </a>
-                <ul class="submenu">
-                    <li><a href="user">usuarios</a></li> 
-                    <li><a href="materia">materias</a></li>
-                    <li><a href="evaluacion">evaluaciones</a></li>
-                    <li><a href="asistencia">asistencias</a></li>
-                    <li><a href="curso">curso</a></li>
-                    <li><a href="cursouser">curso-user</a></li>
-                    <li><a href="tema">tema</a></li>
-                </ul>
-            </li>   
-            </ul>
-            </nav>
-    </div>
-</header>
+@section('header') 
+@endsection
+@section('content')
 <div class="mt-4">
 <h2> Bienvenido a la seccion de Usuarios-Asistencia </h2>
 </div>
-@section('content')
 <div class="botones mt-4">
 <a class="boton_personalizado" href="{{route('asistencia.create')}}">Nueva Asistencia</a>
 <a class="boton_personalizado" href="{{route('asistencia.index')}}">volver</a>
@@ -46,7 +26,7 @@
                             @foreach ($user as $users)
                             <tr>
                             <td>{{$users->id}} </td>
-                            <td><a href="{{route('asistencia.show', $users->id)}}">{{$users->nameus}}</a></td>
+                            <td><a href="{{route('asistencia.show', $users->id)}}">{{$users->name}}</a></td>
                             <td>{{$users->genero}} </td>
                             <td>{{$users->email}} </td>
                             </tr>
@@ -56,6 +36,7 @@
                 </div>
             </div>
         </div>
+@endsection
 @section('js')
 <script>
     $('#user').DataTable({

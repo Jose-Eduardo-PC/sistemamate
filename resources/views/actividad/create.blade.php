@@ -12,7 +12,7 @@
 				@csrf
 				<div class="mt-4">
 					<x-jet-label  value="{{ __('Name') }}" />
-					<x-jet-input class="block mt-1 w-full" type="text" name="name"  />
+					<x-jet-input class="block mt-1 w-full" type="text" name="nameac"  />
 				</div>
 				<div class="mt-4">
 					<x-jet-label  value="{{ __('Descripcion') }}" />
@@ -25,7 +25,7 @@
 					<select name="tema_id">
 					<option value="">seleccione una tema</option>
 					@foreach($tema as $temas)
-					<option value={{$temas->id}}>{{$temas->name}}</option>	
+					<option value={{$temas->id}}>{{$temas->nametm}}</option>	
 					@endforeach
 					</select>
 				</div>

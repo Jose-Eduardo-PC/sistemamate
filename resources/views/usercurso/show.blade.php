@@ -18,7 +18,7 @@
             @foreach ($usercur as $users)
             <tr>
                <td>{{$users->id}} </td>
-               <td>{{$users->nameus}}</td>
+               <td>{{$users->name}}</td>
                <td>{{$users->name}} </td>
                <td>{{$users->estado}} </td>
             </tr>

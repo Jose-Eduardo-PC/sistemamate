@@ -18,7 +18,7 @@
             @foreach ($evaluacion as $evaluacions)
             <tr>
                <td>{{$evaluacions->id}} </td>
-               <td>{{$evaluacions->name}}</td>
+               <td>{{$evaluacions->nametm}}</td>
                <td>{{$evaluacions->namev}}</td>
                <td>{{$evaluacions->fecha}}</td>
             </tr>

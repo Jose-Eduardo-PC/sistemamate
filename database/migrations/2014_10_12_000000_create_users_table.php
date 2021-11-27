@@ -15,14 +15,14 @@ class CreateUsersTable extends Migration
     {
         Schema::create('rols', function (Blueprint $table) {
             $table->bigincrements('id')->unsigned();
-            $table->string('name');
+            $table->string('namerl');
             $table->string('descripcion');
             $table->timestamps();
         });
 
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('nameus');
+            $table->string('name');
             $table->string('genero');
             $table->unsignedBigInteger('rol_id');
             $table->string('email')->unique();

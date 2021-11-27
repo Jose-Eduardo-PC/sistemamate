@@ -14,7 +14,7 @@
 	
 				<div class="mt-4">
 					<x-jet-label for="name" value="{{ __('Name') }}" />
-					<x-jet-input id="name" class="block mt-1 w-full" type="text" name="nameus" :value="old('nameus')" required autofocus autocomplete="name" />
+					<x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
 				</div>
 				<div class="mt-4">
 				<x-jet-label  value="{{ __('Genero') }}" />
@@ -31,7 +31,7 @@
 					<select name="rol_id">
 					<option value="">seleccione un rol</option>
 					@foreach($rol as $rols)
-					<option value={{$rols->id}}>{{$rols->name}}</option>	
+					<option value={{$rols->id}}>{{$rols->namerl}}</option>	
 					@endforeach
 					</select>
 				</div>
@@ -48,10 +48,6 @@
 				<div class="mt-4">
 					<x-jet-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
 					<x-jet-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
-				</div>
-				<div class="mt-4">
-					<label for=""> Foto del usuario</label>
-					<input type="file" accept = "jpg, png, gif, jpeg" class="block mt-1 w-full" name="avatar">
 				</div>
 					<x-jet-button class="mt-4">
 					{{ __('Registro') }}

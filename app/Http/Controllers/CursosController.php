@@ -14,7 +14,7 @@ class CursosController extends Controller
      */
     public function index()
     {
-        $curso = curso::orderBy('id','desc')->paginate();
+        $curso = curso::orderBy('id', 'desc')->paginate();
         return view('curso.index', compact('curso'));
     }
 
@@ -38,10 +38,10 @@ class CursosController extends Controller
     public function store(Request $request)
     {
         $curso = new curso();
-        $curso->name = $request->name;
+        $curso->namecur = $request->namecur;
         $curso->grado = $request->grado;
         $curso->save();
-        return redirect()->route('curso.show',$curso);
+        return redirect()->route('curso.show', $curso);
     }
 
     /**
@@ -75,10 +75,10 @@ class CursosController extends Controller
      */
     public function update(Request $request, curso $curso)
     {
-        $curso->name = $request->name;
+        $curso->namecur = $request->namecur;
         $curso->grado = $request->grado;
         $curso->save();
-        return redirect()->route('curso.show',$curso);
+        return redirect()->route('curso.show', $curso);
     }
 
     /**

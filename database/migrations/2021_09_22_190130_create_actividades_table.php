@@ -15,11 +15,11 @@ class CreateActividadesTable extends Migration
     {
         Schema::create('actividads', function (Blueprint $table) {
             $table->increments('id')->unsigned();
-            $table->string('name')->nullable();
+            $table->string('nameac')->nullable();
             $table->text('descripcion');
             $table->unsignedBigInteger('tema_id');
             $table->foreign('tema_id')->references('id')->on('temas')->onDelete('cascade')->onUpdate('cascade');
-            $table->timestamps();  
+            $table->timestamps();
         });
     }
 

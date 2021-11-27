@@ -15,7 +15,7 @@ class CreateMateriasTable extends Migration
     {
         Schema::create('materias', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
+            $table->string('namemat');
             $table->text('contenido');
             $table->text('descripcion');
             $table->unsignedBigInteger('curso_id');

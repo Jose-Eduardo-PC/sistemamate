@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
@@ -43,6 +45,8 @@
                     {{ __('Log in') }}
                 </x-jet-button>
             </div>
+            <a href="{{url('login/facebook')}}" class="btn btn-block btn-primary">Inicio de sesion con Facebook</a>
+            <a href="{{url('login/google')}}" class="btn btn-block btn-danger">Inicio de sesion con Google</a>
         </form>
     </x-jet-authentication-card>
 </x-guest-layout>

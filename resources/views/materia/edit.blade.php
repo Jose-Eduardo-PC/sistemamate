@@ -13,7 +13,7 @@
 	
 				<div class="mt-4">
 					<x-jet-label  value="{{ __('Name') }}" />
-					<x-jet-input class="block mt-1 w-full" type="text" name="name" value="{{$materia->name}}" />
+					<x-jet-input class="block mt-1 w-full" type="text" name="namemat" value="{{$materia->namemat}}" />
 				</div>
 				<div class="mt-4">
 					<x-jet-label  value="{{ __('Contenido') }}" />
@@ -29,7 +29,7 @@
 				<x-jet-label  value="{{ __('Curso') }}" />
 				<select name="curso_id">
 						@foreach($curso as $cursos)
-						<option value={{$cursos->id}}>{{$cursos->name}}</option>	
+						<option value={{$cursos->id}}>{{$cursos->namecur}}</option>	
 						@endforeach
 				</select>
 			    </div>

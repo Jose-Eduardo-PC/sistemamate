@@ -27,7 +27,7 @@ class ActividadController extends Controller
     public function create()
     {
         $tema = tema::all();
-        return view('actividad.create',compact('tema'));
+        return view('actividad.create', compact('tema'));
     }
 
     /**
@@ -36,14 +36,14 @@ class ActividadController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request,actividad $actividad)
+    public function store(Request $request, actividad $actividad)
     {
-        
-        $actividad->name = $request->name;
-        $actividad->descripcion= $request->descripcion;
+
+        $actividad->nameac = $request->nameac;
+        $actividad->descripcion = $request->descripcion;
         $actividad->tema_id = $request->tema_id;
         $actividad->save();
-        return redirect()->route('actividad.show',$actividad);
+        return redirect()->route('actividad.show', $actividad);
     }
 
     /**
@@ -78,14 +78,14 @@ class ActividadController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,actividad $actividad)
+    public function update(Request $request, actividad $actividad)
     {
-        
-        $actividad->name = $request->name;
-        $actividad->descripcion= $request->descripcion;
+
+        $actividad->nameac = $request->nameac;
+        $actividad->descripcion = $request->descripcion;
         $actividad->tema_id = $request->tema_id;
         $actividad->save();
-        return redirect()->route('actividad.show',$actividad);
+        return redirect()->route('actividad.show', $actividad);
     }
 
     /**

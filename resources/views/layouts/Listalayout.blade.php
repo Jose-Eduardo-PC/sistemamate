@@ -3,11 +3,33 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
-<head>
-<style>
-</style>
-</head>
-@yield('title')
+
+<header class="header">
+    <div class="container logo-nav-container">
+        <a href="#" class="logo">Logo</a>
+   <nav class="navigation">
+    <ul class="menu">
+        <li><a href="inicio">Home</a></li> 
+        <li><a href="admin">login</a></li> 
+        <li><a href="acercade">aserca de</a></li>
+        <li><a href="{{route('contactanos.index')}}">contactanos</a></li>
+        <li><a href="#">listas de registros  </a>
+                    <ul class="submenu">
+                            <li><a href="user">usuarios</a></li> 
+                            <li><a href="materia">materias</a></li>
+                            <li><a href="evaluacion">evaluaciones</a></li>
+                            <li><a href="asistencia">asistencias</a></li>
+                            <li><a href="actividad">actividades</a></li>
+                            <li><a href="curso">curso</a></li>
+                            <li><a href="usercurso">curso-user</a></li>
+                            <li><a href="tema">tema</a></li>
+ </ul>
+</li>
+ </ul>
+</nav>
+</div>
+</header>
+@yield('header')
 <body>
     <style>
         body{
@@ -99,7 +121,6 @@
          }
     </style>
 </body>
-
 @yield('content')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>

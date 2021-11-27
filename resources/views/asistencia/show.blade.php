@@ -12,6 +12,7 @@
                     <tr>
                     <th>Nombre</th>
                     <th>Estado</th>
+                    <th>Fecha</th>
                     <th>Email</th>
 
                     </tr>
@@ -19,8 +20,9 @@
                     <tbody>
                         @foreach ($asistencia as $asistencias)
                         <tr>
-                    <td>{{$asistencias->nameus}}</a></td>
+                    <td>{{$asistencias->name}}</a></td>
                     <td>{{$asistencias->estado}} </td>
+                    <td>{{$asistencias->fecha}} </td>
                     <td>{{$asistencias->email}} </td>
                         </tr>
                         @endforeach
@@ -32,21 +34,5 @@
     <div class="mt-4">
     <a class="boton_personalizado" href="{{route('asistencia.index')}}">volver</a>
     </div>
- @section('js')
-    <script>
-        $('#asistencia').DataTable({
-            "language": {
-            "lengthMenu": "Mostrar _MENU_ Registros de pagina",
-            "zeroRecords": "Nada encontrado - disculpa",
-            "info": "Mostrando la pagina _PAGE_ de _PAGES_",
-            "infoEmpty": "No hay registros disponibles",
-            "infoFiltered": "(filtrado de _MAX_ registros totales)",
-            "search" : "Buscar",
-            "paginate" :{
-                "next" : "Siguiente",
-                "previous" : "Anterior"
-            }
-            }
-        });
-    </script>
+@section('js')
 @endsection

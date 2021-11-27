@@ -65,10 +65,13 @@
         .submenu{
             position: absolute;
             background: black;
+            border: 5px solid rgb(21, 23, 121);
+            border-radius:10px;
             width: 100%;
+            text-align: center;
             visibility: hidden;
             opacity: ;
-            transition: opacity 1.5s;
+            transition: opacity 0.4s;
             z-index: 999;
         }
          

@@ -22,9 +22,9 @@ class TemaFactory extends Factory
     public function definition()
     {
         return [
-            'name'=>$this->faker->randomElement(['Áreas de conocimiento','Ciencias de la Naturaleza','Ciencias Sociales' ,'Lengua castellana y literatura','Biografías','Arte']),
-            'descripcion'=>$this->faker->sentence(),
-            'materia_id'=>$this->faker->numberBetween(1, 5),
+            'nametm' => $this->faker->randomElement(['Áreas de conocimiento', 'Ciencias de la Naturaleza', 'Ciencias Sociales', 'Lengua castellana y literatura', 'Biografías', 'Arte']),
+            'descripcion' => $this->faker->sentence(),
+            'materia_id' => $this->faker->numberBetween(1, 5),
 
         ];
     }

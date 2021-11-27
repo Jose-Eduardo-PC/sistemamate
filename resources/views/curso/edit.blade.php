@@ -20,7 +20,7 @@
 	
 				<div>
 					<x-jet-label  value="{{ __('Name') }}" />
-					<x-jet-input class="block mt-1 w-full" type="text" name="name" value="{{$curso->name}}" />
+					<x-jet-input class="block mt-1 w-full" type="text" name="namecur" value="{{$curso->namecur}}" />
 				</div>
 				
 				<div>

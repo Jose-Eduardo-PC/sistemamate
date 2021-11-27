@@ -69,5 +69,30 @@
        </body>
        @yield('content')
        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-       @yield('js')
+       <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+       <script>
+     $('.formulario-eliminar').submit(function(e){
+        e.preventDefault();
+        Swal.fire({
+  title: 'Estas seguro?',
+  text: "¡No podrás revertir esto!",
+  icon: 'Peligro',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: '¡Sí, bórralo!',
+  cancelButtonText: '¡cancelar!'
+}).then((result) => {
+  if (result.isConfirmed) {
+    this.submit();
+    Swal.fire(
+      '¡Eliminado!',
+      'EL registro ha sido eliminado.',
+      'éxito'
+    )
+  }
+})
+        });
+</script>
+@yield('js')
        

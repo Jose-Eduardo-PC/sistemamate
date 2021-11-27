@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\rol;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -39,11 +40,11 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $user = new user();
-        $user->nameus = $request->nameus;
+        $user->name = $request->name;
         $user->genero = $request->genero;
         $user->rol_id = $request->rol_id;
         $user->email = $request->email;
-        $user->password = $request->password;
+        $user->password = Hash::make($request->password);
         $user->save();
         return redirect()->route('user.show', $user);
     }
@@ -81,11 +82,11 @@ class UserController extends Controller
      */
     public function update(request $request, user $user)
     {
-        $user->nameus = $request->nameus;
+        $user->name = $request->name;
         $user->genero = $request->genero;
         $user->rol_id = $request->rol_id;
         $user->email = $request->email;
-        $user->password = $request->password;
+        $user->password = Hash::make($request->password);
         $user->save();
         return redirect()->route('user.show', $user);
     }
