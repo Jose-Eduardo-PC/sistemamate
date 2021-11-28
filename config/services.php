@@ -31,9 +31,9 @@ return [
     ],
 
     'facebook' => [
-        'client_id' => env('FACABOOK_CLIENTE_ID'),
-        'client_secret' => env('FACABOOK_CLIENTE_SECRET'),
-        'redirect' => env('FACABOOK_REDIRECT_URL'),
+        'client_id' => env('FACEBOOK_CLIENTE_ID'),
+        'client_secret' => env('FACEBOOK_CLIENTE_SECRET'),
+        'redirect' => env('FACEBOOK_REDIRECT_URL'),
     ],
     'google' => [
         'client_id' => env('GOOGLE_CLIENTE_ID'),
