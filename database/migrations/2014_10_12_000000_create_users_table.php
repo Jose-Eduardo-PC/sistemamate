@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
 
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('facebook_id');
+            $table->string('facebook_id')->nullable();
             $table->string('name');
             $table->string('genero');
             $table->unsignedBigInteger('rol_id');

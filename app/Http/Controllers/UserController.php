@@ -40,6 +40,7 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $user = new user();
+        $user->facebook_id = $request->facebook_id;
         $user->name = $request->name;
         $user->genero = $request->genero;
         $user->rol_id = $request->rol_id;
@@ -82,6 +83,7 @@ class UserController extends Controller
      */
     public function update(request $request, user $user)
     {
+        $user->facebook_id = $request->facebook_id;
         $user->name = $request->name;
         $user->genero = $request->genero;
         $user->rol_id = $request->rol_id;
