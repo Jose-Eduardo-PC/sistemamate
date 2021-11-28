@@ -18,7 +18,7 @@ class SocialLoginController extends Controller
     {
         $facebookUser = Socialite::driver('facebook')->user();
         $user = user::firstOrNew(['facebook_id' => $facebookUser->getId()]);
-
+        dd($user);
         if (!$user->exists) {
             $user->name = $facebookUser->getName();
             $user->email = $facebookUser->getEmail();
@@ -28,6 +28,6 @@ class SocialLoginController extends Controller
         }
 
         Auth::login($user);
-        return redirect()->route('admin')->with('success', 'bienvenido' . $user->name);
+        return redirect()->route('dashbord')->with('success', 'bienvenido' . $user->name);
     }
 }
