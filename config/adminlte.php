@@ -247,6 +247,10 @@ return [
             'can'  => 'manage-blog',
         ],
         [
+            'text' => 'HOME',
+            'route'  => 'inicio',
+        ],
+        [
             'text'        => 'pages',
             'url'         => 'admin/pages',
             'icon'        => 'far fa-fw fa-file',
