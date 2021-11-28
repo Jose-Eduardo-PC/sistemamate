@@ -27,6 +27,6 @@ class SocialLoginController extends Controller
         }
 
         Auth::login($user);
-        return redirect()->route('dashbord')->with('success', 'bienvenido' . $user->name);
+        return redirect()->route('admin')->with('success', 'bienvenido' . $user->name);
     }
 }
