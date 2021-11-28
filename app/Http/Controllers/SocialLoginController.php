@@ -17,8 +17,7 @@ class SocialLoginController extends Controller
     public function handleFacebookCallback()
     {
         $facebookUser = Socialite::driver('facebook')->user();
-        $user = user::firstOrNew(['facebook_id' => $facebookUser->getId()]);
-        dd($user);
+        $user = User::firstOrNew(['facebook_id' => $facebookUser->getId()]);
         if (!$user->exists) {
             $user->name = $facebookUser->getName();
             $user->email = $facebookUser->getEmail();
