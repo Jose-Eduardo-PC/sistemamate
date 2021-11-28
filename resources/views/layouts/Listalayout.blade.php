@@ -10,7 +10,7 @@
    <nav class="navigation">
     <ul class="menu">
         <li><a href="home">Home</a></li> 
-        <li><a href="bogin">login</a></li> 
+        <li><a href="login">login</a></li> 
         <li><a href="acercade">aserca de</a></li>
         <li><a href="{{route('contactanos.index')}}">contactanos</a></li>
         <li><a href="#">listas de registros  </a>
