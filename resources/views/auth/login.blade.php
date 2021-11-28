@@ -45,7 +45,7 @@
                     {{ __('Log in') }}
                 </x-jet-button>
             </div>
-            <a href="{{url('login/facebook')}}" class="btn btn-block btn-primary">Inicio de sesion con Facebook</a>
+            <a href="{{route('login.facebook')}}" class="btn btn-block btn-primary">Inicio de sesion con Facebook</a>
             <a href="{{url('login/google')}}" class="btn btn-block btn-danger">Inicio de sesion con Google</a>
         </form>
     </x-jet-authentication-card>

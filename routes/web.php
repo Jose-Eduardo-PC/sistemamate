@@ -12,7 +12,7 @@ use App\Http\Controllers\AsistenciaController;
 use App\Http\Controllers\EvaluacionController;
 use App\Http\Controllers\MateriaController;
 use App\Http\Controllers\ContactanosController;
-
+use App\Http\Controllers\SocialLoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,9 +42,12 @@ Route::resource('materia', MateriaController::class);
 Route::resource('tema', TemaController::class);
 Route::resource('contactanos', ContactanosController::class);
 
-Route::get('login/driver', 'Auth\LoginController@redirectToProvider');
-Route::get('login/{driver}/callback', 'Auth\LoginController@handleProviderCallback');
+
+
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+Route::get('login/facebook', [SocialLoginController::class, 'redirectToFacebook'])->name('login.facebook');
+Route::get('login/facebook/callback', [SocialLoginController::class, 'handleFacebookCallback']);
