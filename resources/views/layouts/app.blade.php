@@ -32,12 +32,22 @@
                     </div>
                 </header>
             @endif
-
+            
             <!-- Page Content -->
             <main>
                 {{ $slot }}
             </main>
         </div>
+        @if (session()->has('success'))
+        <div class="container"> 
+        <div class="alert alert-success">{{session('success')}}</div>
+        </div>
+        @endif
+        @if (session()->has('warning'))
+        <div class="container"> 
+        <div class="alert alert-success">{{session('success')}}</div>
+        </div>
+        @endif
 
         @stack('modals')
 
