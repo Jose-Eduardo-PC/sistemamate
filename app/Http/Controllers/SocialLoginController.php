@@ -9,9 +9,6 @@ class SocialLoginController extends Controller
 {
     public function redirectToFacebook()
     {
-        if (!request('code')) {
-            return redirect()->route('login')->with('warning', 'hubo un error');
-        }
         return Socialite::driver('facebook')->redirect();
     }
 
