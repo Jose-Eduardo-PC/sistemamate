@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Laravel\Socialite\Facades\Socialite;
 use App\Models\User;
-use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Auth;
 
 class SocialLoginController extends Controller
 {
