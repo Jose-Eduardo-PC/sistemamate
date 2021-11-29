@@ -127,8 +127,6 @@
       0 22px 30px rgba(0, 0, 0, 0.9);
   }
     </style>
-
 </body>
-
 @yield('content')
 </hTml>

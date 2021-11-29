@@ -1,4 +1,4 @@
-@extends('layouts.IAlayout')
+@extends('layouts.inicioly')
 <header class="header">
     <div class="container logo-nav-container">
         <a href="#" class="logo">Logo</a>
